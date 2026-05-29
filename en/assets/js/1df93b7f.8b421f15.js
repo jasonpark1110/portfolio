@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([["452"],{5146(o,r,t){t.r(r),t.d(r,{default:()=>n});var e=t(4848),f=t(6347);function n(){return(0,e.jsx)(f.rd,{to:"/frontend"})}}}]);
