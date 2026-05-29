@@ -1,5 +1,7 @@
 import {Redirect} from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-export default function Home() {
-  return <Redirect to="/frontend" />;
+export default function Home(): JSX.Element {
+  const to = useBaseUrl('/frontend');
+  return <Redirect to={to} />;
 }
