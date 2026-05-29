@@ -12,10 +12,10 @@ const config: Config = {
   },
 
   // TODO: GitHub Pages 배포 후 실제 URL로 교체
-  url: 'https://your-github-username.github.io',
+  url: 'https://jasonpark1110.github.io',
   baseUrl: '/portfolio/',
 
-  organizationName: 'your-github-username', // TODO: GitHub 유저명으로 교체
+  organizationName: 'jasonpark1110',
   projectName: 'portfolio',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
@@ -67,7 +67,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/your-github-username', // TODO: GitHub 프로필로 교체
+          href: 'https://github.com/jasonpark1110',
           label: 'GitHub',
           position: 'right',
         },
