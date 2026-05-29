@@ -1,0 +1,475 @@
+/* ─────────────────────────────────────────────────────────────────
+   Fonts
+───────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────
+   Design tokens
+───────────────────────────────────────────────────────────────── */
+:root {
+  /* Accent — warm amber, committed strategy */
+  --ifm-color-primary:          #d4920a;
+  --ifm-color-primary-dark:     #bc8208;
+  --ifm-color-primary-darker:   #b07a08;
+  --ifm-color-primary-darkest:  #906406;
+  --ifm-color-primary-light:    #e0a020;
+  --ifm-color-primary-lighter:  #e6aa2e;
+  --ifm-color-primary-lightest: #f0c060;
+
+  /* Typography */
+  --ifm-font-family-base:    'Barlow', 'Noto Sans KR', system-ui, sans-serif;
+  --ifm-heading-font-family: 'Barlow Condensed', 'Noto Sans KR', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --ifm-font-size-base:      16px;
+  --ifm-line-height-base:    1.72;
+  --ifm-code-font-size:      0.85em;
+
+  /* Spacing / radius */
+  --ifm-global-radius:  4px;
+  --ifm-navbar-height:  52px;
+
+  /* Local aliases — light fallback */
+  --p-accent:         #b07808;
+  --p-accent-subtle:  rgba(176, 120, 8, 0.09);
+  --p-border:         #e0e0ec;
+  --p-surface:        #f4f4fb;
+  --p-bg:             #fafaff;
+}
+
+[data-theme='dark'] {
+  /* Surface scale — very dark, blue-shifted neutrals */
+  --ifm-background-color:         #11111e;
+  --ifm-background-surface-color: #191928;
+  --ifm-navbar-background-color:  #0b0b16;
+  --ifm-footer-background-color:  #0b0b16;
+
+  /* Emphasis scale */
+  --ifm-color-emphasis-0:    #0b0b16;
+  --ifm-color-emphasis-100:  #191928;
+  --ifm-color-emphasis-200:  #202032;
+  --ifm-color-emphasis-300:  #2b2b40;
+  --ifm-color-emphasis-400:  #3e3e5a;
+  --ifm-color-emphasis-500:  #5c5c80;
+  --ifm-color-emphasis-600:  #8080a8;
+  --ifm-color-emphasis-700:  #a4a4c4;
+  --ifm-color-emphasis-800:  #c4c4de;
+  --ifm-color-emphasis-900:  #dcdcee;
+  --ifm-color-emphasis-1000: #f0f0fc;
+
+  /* Text */
+  --ifm-font-color-base:      #d8d8ec;
+  --ifm-font-color-secondary: #8484a8;
+  --ifm-heading-color:        #eaeaf8;
+
+  /* Links */
+  --ifm-link-color:       #d4920a;
+  --ifm-link-hover-color: #e8a820;
+
+  /* Nav links */
+  --ifm-navbar-link-color:       #8484a8;
+  --ifm-navbar-link-hover-color: #d8d8ec;
+
+  /* Code */
+  --docusaurus-highlighted-code-line-bg: rgba(212, 146, 10, 0.08);
+
+  /* Local aliases — dark */
+  --p-accent:        #d4920a;
+  --p-accent-hover:  #e8a820;
+  --p-accent-subtle: rgba(212, 146, 10, 0.09);
+  --p-border:        #222236;
+  --p-surface:       #191928;
+  --p-bg:            #11111e;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Base
+───────────────────────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Typography
+───────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.markdown h1:first-child {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--p-border);
+}
+
+[data-theme='dark'] .markdown h1:first-child {
+  color: #f0f0fc;
+}
+
+.markdown h2 {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--p-accent);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+}
+
+.markdown h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Readable line length */
+.markdown > p,
+.markdown li {
+  max-width: 70ch;
+  line-height: 1.78;
+}
+
+[data-theme='dark'] .markdown > p,
+[data-theme='dark'] .markdown li {
+  color: #c8c8e0;
+}
+
+/* Blockquote — used for product overview teaser lines */
+.markdown blockquote {
+  border-left: 2px solid var(--p-accent);
+  background: var(--p-accent-subtle);
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.markdown blockquote p {
+  margin: 0;
+  max-width: 100%;
+  font-style: normal;
+  font-size: 0.975rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Navbar
+───────────────────────────────────────────────────────────────── */
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--p-border);
+  padding-inline: 1.5rem;
+}
+
+.navbar__brand {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .navbar__brand {
+  color: #eaeaf8 !important;
+}
+
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Sidebar
+───────────────────────────────────────────────────────────────── */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--p-border) !important;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background-color: #0d0d1a;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-menu {
+  background-color: #0d0d1a;
+}
+
+.menu {
+  padding: 1.75rem 0.75rem 1.75rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.menu__link {
+  border-radius: 4px;
+  padding: 0.45rem 0.875rem;
+  font-weight: 500;
+  transition: background 0.12s, color 0.12s;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #7070a0;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  color: #d8d8ec;
+  background: rgba(255,255,255,0.04);
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: var(--p-accent) !important;
+  background: var(--p-accent-subtle) !important;
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Article / main content
+───────────────────────────────────────────────────────────────── */
+.docItemContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module,
+article {
+  max-width: 820px;
+}
+
+/* Doc edit / timestamps — hide for portfolio */
+.theme-doc-footer,
+.theme-doc-footer-edit-meta-row {
+  display: none;
+}
+
+/* Pagination nav */
+.pagination-nav {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--p-border);
+  gap: 1rem;
+}
+
+.pagination-nav__link {
+  border: 1px solid var(--p-border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--p-accent);
+  background: var(--p-accent-subtle);
+  text-decoration: none;
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--p-accent);
+  margin-bottom: 0.25rem;
+}
+
+.pagination-nav__label {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Tables
+───────────────────────────────────────────────────────────────── */
+.markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--p-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.markdown table th {
+  background: var(--p-surface);
+  font-family: var(--ifm-heading-font-family);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ifm-font-color-secondary);
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--p-border);
+}
+
+.markdown table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--p-border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.markdown table tr:last-child td {
+  border-bottom: none;
+}
+
+[data-theme='dark'] .markdown table tr:hover td {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* First column bold in some tables */
+.markdown table td:first-child strong {
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Code
+───────────────────────────────────────────────────────────────── */
+.markdown :not(pre) > code {
+  font-size: 0.85em;
+  padding: 0.18em 0.45em;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .markdown :not(pre) > code {
+  background: #1c1c30;
+  color: #d4b070;
+  border: 1px solid #2a2a42;
+}
+
+pre,
+.prism-code {
+  border: 1px solid var(--p-border) !important;
+  border-radius: 6px !important;
+}
+
+[data-theme='dark'] pre,
+[data-theme='dark'] .prism-code {
+  background: #0d0d1a !important;
+}
+
+/* Code block inside "두 개의 바이너리" section */
+.markdown pre code {
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   List — contribution items
+───────────────────────────────────────────────────────────────── */
+.markdown ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.markdown ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.55rem;
+}
+
+.markdown ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--p-accent);
+  font-weight: 600;
+  font-size: 0.85em;
+  top: 0.05em;
+}
+
+/* Nested lists — restore normal bullets */
+.markdown ul ul li::before {
+  content: '–';
+  color: var(--ifm-font-color-secondary);
+  font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Table of contents
+───────────────────────────────────────────────────────────────── */
+.table-of-contents__link {
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+}
+
+.table-of-contents__link--active,
+.table-of-contents__link:hover {
+  color: var(--p-accent);
+}
+
+.table-of-contents__left-border {
+  border-left-color: var(--p-border);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Footer
+───────────────────────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--p-border);
+  padding: 1.5rem;
+}
+
+.footer__copyright {
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Breadcrumbs — hide (not needed for simple portfolio)
+───────────────────────────────────────────────────────────────── */
+.breadcrumbs {
+  display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Scrollbar (dark mode)
+───────────────────────────────────────────────────────────────── */
+[data-theme='dark'] ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #252540;
+  border-radius: 3px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: #353558;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Color mode toggle — subtle
+───────────────────────────────────────────────────────────────── */
+.navbar__items--right .clean-btn {
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.navbar__items--right .clean-btn:hover {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Locale dropdown
+───────────────────────────────────────────────────────────────── */
+.navbar__item.dropdown .dropdown__menu {
+  border: 1px solid var(--p-border);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+[data-theme='dark'] .navbar__item.dropdown .dropdown__menu {
+  background: #191928;
+}
+
+[data-theme='dark'] .dropdown__link:hover {
+  background: var(--p-accent-subtle);
+  color: var(--p-accent);
+}

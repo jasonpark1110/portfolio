@@ -1,0 +1,14 @@
+{
+  "sidebar.portfolioSidebar.doc.frontend": {
+    "message": "Frontend (React SPA)",
+    "description": "Sidebar label for frontend doc"
+  },
+  "sidebar.portfolioSidebar.doc.backend": {
+    "message": "Backend (Rails API)",
+    "description": "Sidebar label for backend doc"
+  },
+  "sidebar.portfolioSidebar.doc.mcp": {
+    "message": "MCP Server (Go)",
+    "description": "Sidebar label for mcp doc"
+  }
+}
