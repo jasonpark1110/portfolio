@@ -1,5 +1,6 @@
 ---
 id: frontend
+slug: /
 sidebar_position: 1
 ---
 # Binary Security Platform — Frontend Portfolio

@@ -1,5 +1,6 @@
 ---
 id: frontend
+slug: /
 sidebar_position: 1
 ---
 # 바이너리 보안 플랫폼 — 프론트엔드 포트폴리오
