@@ -1,7 +1,3 @@
----
-id: backend
-sidebar_position: 2
----
 # Binary Security Platform — Backend Portfolio
 
 > Ruby on Rails 8 REST API server for a binary code analysis & compliance SaaS platform.
@@ -111,11 +107,9 @@ Python modules called from Rails via PyCall FFI, enabling multi-standard SBOM ex
 
 ## Contributions
 
-> *(Fill in your specific contributions)*
-
--
--
--
+- **SBOM multi-format generation (Python)**: Implemented Python modules for each SBOM format — SPDX 2.x/3.x, CycloneDX, VEX, CBOM, AI-BOM. Designed the integration layer called from Rails via PyCall FFI
+- **REST API development**: Designed and modified Ruby on Rails API endpoints. Handled request validation, serialization, and data flow across service layers
+- **Security data query performance improvement**: Profiled and load-tested the code path that fetches CVE/CNVD security data from the binary analysis engine. Identified bottlenecks and optimized queries to reduce response time
 
 ---
 

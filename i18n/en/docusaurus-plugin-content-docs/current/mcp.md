@@ -1,7 +1,3 @@
----
-id: mcp
-sidebar_position: 3
----
 # Binary Security Platform MCP Server — Portfolio
 
 > Go-based MCP server enabling AI agents to directly invoke a binary security scanner.
@@ -119,10 +115,11 @@ All tool handlers are wrapped with audit logging and rate limiter prechecks.
 
 ## Contributions
 
-> *(Fill in your specific contributions)*
+Collaborated with an external development team. Responsible for requirements definition, quality validation, and ongoing maintenance.
 
--
--
+- **MCP tool spec definition and design**: Defined the specification for all 4 MCP tools (`upload_binary`, `start_scan`, `wait_for_scan`, `export_sbom`) — input/output schemas, behavioral contracts, and error scenarios. Authored technical requirements documentation for the external development team
+- **Conformance testing**: Verified that the implemented MCP server matched the defined specs. Validated edge case behavior (upload failure, scan timeout, token expiry, etc.) and provided structured feedback
+- **Maintenance and feature fixes**: Diagnosed and resolved issues in production. Re-defined specs for behavioral changes and oversaw their implementation
 -
 
 ---

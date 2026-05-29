@@ -1,7 +1,3 @@
----
-id: backend
-sidebar_position: 2
----
 # 바이너리 보안 플랫폼 — 백엔드 포트폴리오
 
 > 바이너리 분석 보안 플랫폼을 위한 Ruby on Rails 8 REST API 서버
@@ -111,11 +107,9 @@ Rails에서 PyCall FFI를 통해 Python 모듈을 호출하는 방식으로 다�
 
 ## 기여 내역
 
-> *(직접 작성)*
-
--
--
--
+- **SBOM 다중 포맷 생성 Python 구현**: SPDX 2.x/3.x, CycloneDX, VEX, CBOM, AI-BOM 포맷별 Python 모듈 직접 구현. Rails에서 PyCall FFI로 호출하는 구조 설계 및 연동
+- **REST API 수정**: Ruby on Rails 기반 API 엔드포인트 설계 및 수정. 요청 유효성 검증, 직렬화, 레이어 간 데이터 흐름 처리
+- **보안 취약점 정보 조회 성능 개선**: 바이너리 분석 엔진 API 호출 시 보안(CVE/CNVD) 정보를 로드하는 경로의 성능 테스트 수행. 병목 구간 식별 후 쿼리 최적화 및 응답 속도 개선
 
 ---
 
